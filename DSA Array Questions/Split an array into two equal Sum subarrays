@@ -43,3 +43,22 @@ console.log(arr1);
 console.log(arr2);
 
 //m2 
+
+function equalSums(arr, n){
+
+  let leftSum = arr.reduce((acc, cur)=>(acc+cur));
+  let rightSum = 0;
+  let j = n - 1;
+  while(leftSum > rightSum){
+  	rightSum += arr[j];
+    leftSum -= arr[j]
+    j--;
+  }
+  j = leftSum === rightSum ?  j : -1;
+  return j; 
+}
+
+let pos = equalSums(arr, arr.length);
+console.log(pos);
+console.log(arr.splice(pos+1));
+console.log(arr);
